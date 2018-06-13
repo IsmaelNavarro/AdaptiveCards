@@ -1,17 +1,17 @@
 .acd-icon-bolt::before {
-    content: '\E945';
+    content: "\E945";
 }
 
 .acd-icon-addColumn::before {
-    content: '\F1D6';
+    content: "\F1D6";
 }
 
 .acd-icon-remove::before {
-    content: '\E711';
+    content: "\E711";
 }
 
 .acd-icon-drag::before {
-    content: '\E7C2';
+    content: "\E7C2";
 }
 
 .acd-designersurface {
@@ -30,7 +30,7 @@
 .acd-peerButton {
     width: 20px;
     height: 20px;
-    font-family: 'FabricMDL2Icons';
+    font-family: "FabricMDL2Icons";
     font-size: 14px;
     font-weight: bold;
     font-style: normal;
@@ -154,7 +154,7 @@
 
 .treeview__icon--arrow {
     background-color: transparent;
-    background-image: url('/assets/arrow.png');
+    background-image: url("/assets/arrow.png");
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
@@ -164,7 +164,7 @@
 }
 
 .treeview__icon--arrow.is-rotated {
-    background-image: url('/assets/arrow-rotated.png');
+    background-image: url("/assets/arrow-rotated.png");
 }
 
 .btn {

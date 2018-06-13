@@ -204,7 +204,6 @@ class DesignerApp {
             }
             foldArrow.addEventListener("click", () => {
                 this.foldTreeViewContainer(item.elementId, foldArrow);
-                console.log('Button?: ', foldArrow)
                 foldArrow.classList.toggle("is-rotated");
             });
             listItem.appendChild(foldArrow);
