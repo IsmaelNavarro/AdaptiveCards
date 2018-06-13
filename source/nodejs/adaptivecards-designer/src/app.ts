@@ -210,7 +210,7 @@ class DesignerApp {
         }
 
         let icon = document.createElement("span");
-        icon.className = `treeview__icon treeview__icon--${item.getJsonTypeName().toLowerCase()}`;
+        icon.className = `treeview__icon treeview__icon--${this.sanitizeString(item.getJsonTypeName())}`;
         listItem.appendChild(icon);
 
         let title = document.createElement("span");
@@ -236,6 +236,10 @@ class DesignerApp {
             let index = this._treeViewFoldedElements.indexOf(elementId);
             this._treeViewFoldedElements.splice(index, 1);
         }
+    }
+
+    private sanitizeString(input: string): string {
+        return input.toLowerCase().replace(".", "");
     }
 
     private buildPropertySheet(peer: Designer.DesignerPeer) {
