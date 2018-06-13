@@ -144,7 +144,7 @@ class DesignerApp {
         }
     }
 
-    private generateTreeViewElements(cardItems: Array<Adaptive.CardElement | Adaptive.Action>, peer: Designer.DesignerPeer, identationLevel: number = 1): HTMLElement {
+    private generateTreeViewElements(cardItems: Array<Adaptive.CardElement | Adaptive.Action>, peer: Designer.DesignerPeer, identationLevel: number = 0): HTMLElement {
         if (!cardItems || cardItems.length === 0) {
             let node = document.createElement("ul");
             return node;
@@ -168,10 +168,19 @@ class DesignerApp {
 
             const isFolded = this._treeViewFoldedElements.indexOf(item.elementId) !== -1;
 
+            let childs = [];
             if ([Adaptive.Container.name, Adaptive.Column.name].indexOf(item.getJsonTypeName()) !== -1) {
-                itemList.appendChild(this.createChildList((item as Adaptive.Container).getItems(), peer, identationLevel, isFolded));
+                childs = (item as Adaptive.Container).getItems();
             } else if (item.getJsonTypeName() === Adaptive.ColumnSet.name) {
-                itemList.appendChild(this.createChildList((item as Adaptive.ColumnSet).getColumns(), peer, identationLevel, isFolded));
+                childs = (item as Adaptive.ColumnSet).getColumns();
+            }
+
+            if (childs.length) {
+                itemList.appendChild(this.createChildList(childs, peer, identationLevel, isFolded));
+            } else {
+                let emptyChild = document.createElement("li");
+                emptyChild.className = "treeview__element is-empty";
+                itemList.appendChild(emptyChild)
             }
 
             itemIndex++;
@@ -185,6 +194,7 @@ class DesignerApp {
         if (isFolded) {
             newItem.className += " is-folded";
         }
+
         newItem.appendChild(this.generateTreeViewElements(items, peer, ++identationLevel));
         return newItem;
     }
@@ -221,7 +231,7 @@ class DesignerApp {
         listItem.addEventListener("click", () => {
             this._designer.setSelectedPeerById(item.elementId);
         });
-        listItem.style.paddingLeft = `${identationLevel * 24}px`;
+        listItem.style.paddingLeft = `${identationLevel * 46 + 24}px`;
         return listItem;
     }
 
