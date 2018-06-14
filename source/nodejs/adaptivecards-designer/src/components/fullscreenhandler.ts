@@ -10,12 +10,10 @@ export default class FullScreenHandler {
         this._body = document.body as FullScreenElement;
         this._fullScreenBtn = button;
         this._fullScreenDocument = document as FullScreenDocument;
-        console.log("Button: ", this._fullScreenBtn);
     }
 
     public init() {
         this._fullScreenBtn.addEventListener("click", () => {
-            console.log("Ismanapa");
             if (this._fullScreenDocument.fullscreen || this._fullScreenDocument.webkitIsFullScreen || this._fullScreenDocument.mozFullScreen) {
                 if (this._fullScreenDocument.exitFullscreen) {
                     this._fullScreenDocument.exitFullscreen();
