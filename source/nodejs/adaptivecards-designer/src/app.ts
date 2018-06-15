@@ -98,11 +98,21 @@ declare function loadMonacoEditor(schema: any, callback: () => void);
 
 class PaletteItem extends Designer.DraggableElement {
     protected internalRender(): HTMLElement {
-        var element = document.createElement("div");
-        element.classList.add("acd-palette-item");
-        element.innerText = this.typeRegistration.typeName;
+        let element = document.createElement("li");
+        element.className = `aside-item aside-item__icon aside-item__icon--${this.sanitizeString(this.typeRegistration.typeName)}`;
+        element.innerText = this.sanitizeName(this.typeRegistration.typeName);
 
         return element;
+    }
+
+
+    private sanitizeString(input: string): string {
+        return input.toLowerCase().replace(".", "");
+    }
+
+    private sanitizeName(input: string): string {
+        let src = input.replace(".", " ");
+        return src.replace("Set", " Set");
     }
 
     readonly typeRegistration: Adaptive.ITypeRegistration<Adaptive.CardElement>;
@@ -491,7 +501,7 @@ window.onload = () => {
     app.propertySheetHostElement = document.getElementById("propertySheetHost");
     app.treeViewSheetHostElement = document.getElementById("treeViewSheetHost");
     app.commandListHostElement = document.getElementById("commandsHost");
-    app.paletteHostElement = document.getElementById("toolPalette");
+    app.paletteHostElement = document.querySelector(".aside-items");
 
     app.createContainerPicker().attach(document.getElementById("containerPickerHost"));
 
