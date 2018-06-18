@@ -3,6 +3,7 @@ import * as Adaptive from "adaptivecards";
 import * as Controls from "adaptivecards-controls";
 import * as Constants from "./constants";
 import * as Designer from "./card-designer";
+import * as Utils from "./utils";
 import { HostContainer } from "./containers/host-container";
 import { OutlookContainer } from "./containers/outlook-container";
 import { CortanaContainer } from "./containers/cortana-container";
@@ -99,20 +100,10 @@ declare function loadMonacoEditor(schema: any, callback: () => void);
 class PaletteItem extends Designer.DraggableElement {
     protected internalRender(): HTMLElement {
         let element = document.createElement("li");
-        element.className = `aside-item aside-item__icon aside-item__icon--${this.sanitizeString(this.typeRegistration.typeName)}`;
-        element.innerText = this.sanitizeName(this.typeRegistration.typeName);
+        element.className = `aside-item aside-item__icon aside-item__icon--${Utils.sanitizeString(this.typeRegistration.typeName)}`;
+        element.innerText = Utils.sanitizeName(this.typeRegistration.typeName);
 
         return element;
-    }
-
-
-    private sanitizeString(input: string): string {
-        return input.toLowerCase().replace(".", "");
-    }
-
-    private sanitizeName(input: string): string {
-        let src = input.replace(".", " ");
-        return src.replace("Set", " Set");
     }
 
     readonly typeRegistration: Adaptive.ITypeRegistration<Adaptive.CardElement>;
