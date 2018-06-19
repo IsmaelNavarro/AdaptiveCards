@@ -2231,6 +2231,9 @@ export class CardDesigner {
 
             const icon = document.querySelector(".js-aside-menu__icon");
             icon.classList.toggle("icon--expand");
+
+            const description = document.querySelector(".js-aside-menu__description");
+            description.classList.toggle("is-hidden");
         })
     }
 

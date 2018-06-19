@@ -136,6 +136,7 @@
 
 .icon--expand {
     background-image: url("/assets/icons/expand.png");
+    margin-right: 0;
 }
 
 .header-menu__description,
