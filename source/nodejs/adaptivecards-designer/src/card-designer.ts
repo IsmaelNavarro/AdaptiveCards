@@ -2222,17 +2222,17 @@ export class CardDesigner {
     }
 
     toggleAside():void {
-        document.querySelector(".js-aside-menu__bullet").addEventListener("click", () => {
+        document.querySelector(".js-aside-bullet").addEventListener("click", () => {
             const aside = document.querySelector(".js-aside");
             aside.classList.toggle("is-toggled");
 
             const items = document.querySelector(".js-aside-items");
             items.classList.toggle("is-hidden");
 
-            const icon = document.querySelector(".js-aside-menu__icon");
+            const icon = document.querySelector(".js-aside-icon");
             icon.classList.toggle("icon--expand");
 
-            const description = document.querySelector(".js-aside-menu__description");
+            const description = document.querySelector(".js-aside-description");
             description.classList.toggle("is-hidden");
         })
     }
