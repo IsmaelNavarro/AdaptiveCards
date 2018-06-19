@@ -101,8 +101,9 @@
 /*
 * Header and Aside menus
 */
-.header-menu,
-.aside-menu {
+.aside-menu,
+.treeview-menu,
+.properties-menu {
     align-items: center;
     background-color: #d8d8d8;
     display: flex;
@@ -111,20 +112,23 @@
     padding: 6px 12px;
 }
 
-.header-menu__title,
-.aside-menu__title {
+.aside-menu__title,
+.treeview-menu__title,
+.properties-menu__title {
     color: #000000;
 }
 
-.header-menu__bullet,
-.aside-menu__bullet {
+.aside-menu__bullet,
+.treeview-menu__bullet,
+.properties-menu__bullet {
     align-items: center;
     cursor: pointer;
     display: flex;
 }
 
-.header-menu__icon,
-.aside-menu__icon {
+.aside-menu__icon,
+.treeview-menu__icon,
+.properties-menu__icon {
     background-image: url("/assets/icons/hide.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -139,8 +143,9 @@
     margin-right: 0;
 }
 
-.header-menu__description,
-.aside-menu__description {
+.aside-menu__description,
+.treeview-menu__description,
+.properties-menu__description {
     color: #4a4a4a;
 }
 
@@ -162,8 +167,19 @@
     height: 30px;
 }
 
+.is-toggled .treeview-menu,
+.is-toggled .properties-menu {
+    transform: translate(-75px, 74px) rotate(90deg);
+    width: 180px;
+    height: 30px;
+}
+
 .aside.is-toggled {
     flex-basis: 29px;
+}
+
+[id="treeViewSheetHost"].is-toggled {
+    width: 30px !important; /* The important overrides inline CSS properties added via JS */
 }
 
 .is-hidden {
@@ -322,7 +338,7 @@
 /*
 * Treeview Style
 */
-.treeview {
+.treeview-items {
     background-color: #f9f9f9;
     height: calc(100% - 30px);
     padding-bottom: 5px;

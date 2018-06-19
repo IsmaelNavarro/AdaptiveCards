@@ -2237,6 +2237,23 @@ export class CardDesigner {
         })
     }
 
+    toggleTreeview():void {
+        document.querySelector(".js-treeview-bullet").addEventListener("click", () => {
+            const aside = document.querySelector(".js-treeview");
+            aside.classList.toggle("is-toggled");
+
+            const items = document.querySelector(".js-treeview-items");
+            items.classList.toggle("is-hidden");
+
+            const icon = document.querySelector(".js-treeview-icon");
+            icon.classList.toggle("icon--expand");
+
+            const description = document.querySelector(".js-treeview-description");
+            description.classList.toggle("is-hidden");
+        })
+    }
+
+
     updateLayout(isFullRefresh: boolean = true) {
         for (var i = 0; i < this._allPeers.length; i++) {
             this._allPeers[i].updateLayout();
@@ -2249,6 +2266,7 @@ export class CardDesigner {
         }
 
         this.toggleAside();
+        this.toggleTreeview();
     }
 
     removeSelected() {

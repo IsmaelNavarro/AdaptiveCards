@@ -140,7 +140,7 @@ class DesignerApp {
 
     public buildTreeViewSheet(peer: Designer.DesignerPeer) {
         if (this.treeViewSheetHostElement) {
-            let treeview = this.treeViewSheetHostElement.getElementsByClassName("treeview")[0];
+            let treeview = this.treeViewSheetHostElement.getElementsByClassName("treeview-items")[0];
             treeview.innerHTML = "";
 
             const items = [...this._card.getItems(), ...this._card.getActions()];
