@@ -152,7 +152,13 @@ class DesignerApp {
 
     private buildPropertySheet(peer: Designer.DesignerPeer) {
         if (this.propertySheetHostElement) {
-            this.propertySheetHostElement.innerHTML = "";
+            this.propertySheetHostElement.innerHTML = `<nav class="properties-menu">
+            <span class="properties-menu__title">Element properties</span>
+            <span class="properties-menu__bullet js-properties-bullet">
+                <span class="properties-menu__icon js-properties-icon"></span>
+                <span class="properties-menu__description js-properties-description">Hide</span>
+            </span>
+        </nav>`;
 
             let card: Adaptive.AdaptiveCard;
 

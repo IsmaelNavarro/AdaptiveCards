@@ -29,6 +29,12 @@ a.default-ac-anchor:visited:active {
     color: #004D84;
 }
 
+.default-ac-container,
+.default-ac-input {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .default-ac-container.default-ac-selectable,
 .default-ac-columnSet.default-ac-selectable {
     padding: 0;

@@ -167,6 +167,11 @@
     height: 30px;
 }
 
+.is-toggled .ac-container,
+.is-toggled .default-ac-container {
+    display: none !important; /* The important overrides inline CSS properties added via JS */
+}
+
 .is-toggled .treeview-menu,
 .is-toggled .properties-menu {
     transform: translate(-75px, 74px) rotate(90deg);
@@ -178,7 +183,8 @@
     flex-basis: 29px;
 }
 
-[id="treeViewSheetHost"].is-toggled {
+[id="treeViewSheetHost"].is-toggled,
+[id="propertySheetHost"].is-toggled {
     width: 30px !important; /* The important overrides inline CSS properties added via JS */
 }
 
@@ -287,8 +293,6 @@
     background-image: url("/assets/icons/textblock.png");
 }
 
-
-/*.Card Elements*/
 
 
 /*
