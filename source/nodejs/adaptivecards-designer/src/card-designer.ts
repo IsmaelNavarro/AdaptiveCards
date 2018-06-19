@@ -391,6 +391,9 @@ export abstract class DesignerPeer extends DraggableElement {
                     lineThickness: 1,
                     lineColor: "#EEEEEE"
                 },
+                textAlign: {
+                    right: "right"
+                },
                 fontSizes: {
                     small: 12,
                     default: 14,
@@ -626,6 +629,7 @@ export class ActionPeer extends DesignerPeer {
     protected _action: Adaptive.Action;
 
     protected getCardObjectTypeName(): string {
+        console.log(this.action.getJsonTypeName());
         return this.action.getJsonTypeName();
     }
 
@@ -2217,6 +2221,19 @@ export class CardDesigner {
         this._designerSurface.appendChild(this._peerCommandsHostElement);
     }
 
+    toggleAside():void {
+        document.querySelector(".js-aside-menu__bullet").addEventListener("click", () => {
+            const aside = document.querySelector(".js-aside");
+            aside.classList.toggle("is-toggled");
+
+            const items = document.querySelector(".js-aside-items");
+            items.classList.toggle("is-hidden");
+
+            const icon = document.querySelector(".js-aside-menu__icon");
+            icon.classList.toggle("icon--expand");
+        })
+    }
+
     updateLayout(isFullRefresh: boolean = true) {
         for (var i = 0; i < this._allPeers.length; i++) {
             this._allPeers[i].updateLayout();
@@ -2227,6 +2244,8 @@ export class CardDesigner {
         if (this.onLayoutUpdated) {
             this.onLayoutUpdated(isFullRefresh);
         }
+
+        this.toggleAside();
     }
 
     removeSelected() {

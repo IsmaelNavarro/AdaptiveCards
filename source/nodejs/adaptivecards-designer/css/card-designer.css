@@ -119,6 +119,7 @@
 .header-menu__bullet,
 .aside-menu__bullet {
     align-items: center;
+    cursor: pointer;
     display: flex;
 }
 
@@ -131,6 +132,10 @@
     height: 20px;
     margin-right: 4px;
     width: 20px;
+}
+
+.icon--expand {
+    background-image: url("/assets/icons/expand.png");
 }
 
 .header-menu__description,
@@ -148,6 +153,20 @@
     border-right: 1px solid #D2D2D2;
     flex: 1 0 180px;
     overflow-y: auto;
+}
+
+.is-toggled .aside-menu {
+    transform: translate(-75px, 74px) rotate(-90deg);
+    width: 179px;
+    height: 30px;
+}
+
+.aside.is-toggled {
+    flex-basis: 29px;
+}
+
+.is-hidden {
+    display: none;
 }
 
 .aside-items {
