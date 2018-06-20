@@ -185,6 +185,7 @@ class DesignerApp {
             }
 
             properties.appendChild(card.render());
+            (card.renderedElement.children[0] as HTMLElement).style.backgroundColor = "transparent";
         }
     }
 
