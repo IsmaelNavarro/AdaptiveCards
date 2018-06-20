@@ -57,7 +57,16 @@
                         <div class="treeview-items js-treeview-items"></div>
                     </section>
                     <div id="propertyVerticalSplitter" style="flex: 0 0 6px; background-color: #EEEEEE; border-left: 1px solid #D2D2D2; border-right: 1px solid #D2D2D2; cursor: ew-resize;"></div>
-                    <section id="propertySheetHost" class="js-properties" style="flex: 0 0 auto; width: 360px; height: 100%; overflow: auto; background-color: #F9F9F9;"></section>
+                    <section id="propertySheetHost" class="js-properties" style="flex: 0 0 auto; width: 360px; height: 100%; overflow: auto; background-color: #F9F9F9;">
+                        <nav class="properties-menu">
+                            <span class="properties-menu__title">Element properties</span>
+                            <span class="properties-menu__bullet js-properties-bullet">
+                                <span class="properties-menu__icon js-properties-icon"></span>
+                                <span class="properties-menu__description js-properties-description">Hide</span>
+                            </span>
+                        </nav>
+                        <div class="properties-items js-properties-items"></div>
+                    </section>
                 </div>
                 <div id="horizontalSplitter" style="flex: 0 0 6px; background-color: #EEEEEE; border-top: 1px solid #D2D2D2; border-bottom: 1px solid #D2D2D2; cursor: ns-resize;"></div>
                 <div id="jsonEditorHost" style="flex: 0 0 auto; display: flex; height: 300px; overflow: hidden;">

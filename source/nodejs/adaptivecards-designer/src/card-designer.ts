@@ -2221,55 +2221,7 @@ export class CardDesigner {
         this._designerSurface.appendChild(this._peerCommandsHostElement);
     }
 
-    toggleAside():void {
-        document.querySelector(".js-aside-bullet").addEventListener("click", () => {
-            const aside = document.querySelector(".js-aside");
-            aside.classList.toggle("is-toggled");
-
-            const items = document.querySelector(".js-aside-items");
-            items.classList.toggle("is-hidden");
-
-            const icon = document.querySelector(".js-aside-icon");
-            icon.classList.toggle("icon--expand");
-
-            const description = document.querySelector(".js-aside-description");
-            description.classList.toggle("is-hidden");
-        })
-    }
-
-    toggleTreeview():void {
-        document.querySelector(".js-treeview-bullet").addEventListener("click", () => {
-            const aside = document.querySelector(".js-treeview");
-            aside.classList.toggle("is-toggled");
-
-            const items = document.querySelector(".js-treeview-items");
-            items.classList.toggle("is-hidden");
-
-            const icon = document.querySelector(".js-treeview-icon");
-            icon.classList.toggle("icon--expand");
-
-            const description = document.querySelector(".js-treeview-description");
-            description.classList.toggle("is-hidden");
-        })
-    }
-
-    toggleProperties():void {
-        document.querySelector(".js-properties-bullet").addEventListener("click", () => {
-            const aside = document.querySelector(".js-properties");
-            aside.classList.toggle("is-toggled");
-
-            const items = document.querySelector(".ac-container");
-            items.classList.toggle("is-hidden");
-
-            const icon = document.querySelector(".js-properties-icon");
-            icon.classList.toggle("icon--expand");
-
-            const description = document.querySelector(".js-properties-description");
-            description.classList.toggle("is-hidden");
-
-            console.log("It's alive!");
-        })
-    }
+   
 
 
     updateLayout(isFullRefresh: boolean = true) {
@@ -2282,10 +2234,6 @@ export class CardDesigner {
         if (this.onLayoutUpdated) {
             this.onLayoutUpdated(isFullRefresh);
         }
-
-        this.toggleAside();
-        this.toggleTreeview();
-        this.toggleProperties();
     }
 
     removeSelected() {

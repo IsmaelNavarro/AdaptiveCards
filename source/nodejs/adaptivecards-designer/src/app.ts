@@ -151,14 +151,9 @@ class DesignerApp {
     }
 
     private buildPropertySheet(peer: Designer.DesignerPeer) {
+        let properties = document.getElementsByClassName("js-properties-items")[0];
         if (this.propertySheetHostElement) {
-            this.propertySheetHostElement.innerHTML = `<nav class="properties-menu">
-            <span class="properties-menu__title">Element properties</span>
-            <span class="properties-menu__bullet js-properties-bullet">
-                <span class="properties-menu__icon js-properties-icon"></span>
-                <span class="properties-menu__description js-properties-description">Hide</span>
-            </span>
-        </nav>`;
+            properties.innerHTML = "";
 
             let card: Adaptive.AdaptiveCard;
 
@@ -189,7 +184,7 @@ class DesignerApp {
                 );
             }
 
-            this.propertySheetHostElement.appendChild(card.render());
+            properties.appendChild(card.render());
         }
     }
 
@@ -383,6 +378,60 @@ class DesignerApp {
         this.designer.endDrag();
     }
 
+    private toggleAside():void {
+        document.querySelector(".js-aside-bullet").addEventListener("click", () => {
+            const aside = document.querySelector(".js-aside");
+            aside.classList.toggle("is-toggled");
+
+            const items = document.querySelector(".js-aside-items");
+            items.classList.toggle("is-hidden");
+
+            const icon = document.querySelector(".js-aside-icon");
+            icon.classList.toggle("icon--expand");
+
+            const description = document.querySelector(".js-aside-description");
+            description.classList.toggle("is-hidden");
+        })
+    }
+
+    private toggleTreeview():void {
+        document.querySelector(".js-treeview-bullet").addEventListener("click", () => {
+            const aside = document.querySelector(".js-treeview");
+            aside.classList.toggle("is-toggled");
+
+            const items = document.querySelector(".js-treeview-items");
+            items.classList.toggle("is-hidden");
+
+            const icon = document.querySelector(".js-treeview-icon");
+            icon.classList.toggle("icon--expand");
+
+            const description = document.querySelector(".js-treeview-description");
+            description.classList.toggle("is-hidden");
+        })
+    }
+
+    private toggleProperties():void {
+        document.querySelector(".js-properties-bullet").addEventListener("click", () => {
+            const aside = document.querySelector(".js-properties");
+            aside.classList.toggle("is-toggled");
+
+            const items = document.querySelector(".ac-container");
+            items.classList.toggle("is-hidden");
+
+            const icon = document.querySelector(".js-properties-icon");
+            icon.classList.toggle("icon--expand");
+
+            const description = document.querySelector(".js-properties-description");
+            description.classList.toggle("is-hidden");
+        })
+    }
+
+    public activateToggles():void {
+        this.toggleAside();
+        this.toggleProperties();
+        this.toggleTreeview();
+    }
+
     get paletteHostElement(): HTMLElement {
         return this._paletteHostElement;
     }
@@ -523,6 +572,8 @@ window.onload = () => {
     app.paletteHostElement = document.querySelector(".aside-items");
 
     app.createContainerPicker().attach(document.getElementById("containerPickerHost"));
+
+    app.activateToggles();
 
     window.addEventListener("pointermove", (e: PointerEvent) => { app.handlePointerMove(e); });
     window.addEventListener("resize", () => { scheduleLayoutUpdate(); });
