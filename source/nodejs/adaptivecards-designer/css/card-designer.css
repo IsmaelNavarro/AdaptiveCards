@@ -241,9 +241,9 @@
     padding-left: 36px;
 }
 
-/* .aside-item__icon--actionset {
-    background-image: url("/assets/icons/.png");
-} */
+.aside-item__icon--actionset {
+    background-image: url("/assets/icons/actionset.png");
+}
 
 .aside-item__icon--columnset {
     background-image: url("/assets/icons/column-set.png");
@@ -265,8 +265,12 @@
     background-image: url("/assets/icons/image-set.png");
 }
 
+.aside-item__icon--choice {
+    background-image: url("/assets/icons/choice.png");
+}
+
 .aside-item__icon--inputchoiceset {
-    background-image: url("/assets/icons/checkbox.png");
+    background-image: url("/assets/icons/choiceset.png");
 }
 
 .aside-item__icon--inputdate {
