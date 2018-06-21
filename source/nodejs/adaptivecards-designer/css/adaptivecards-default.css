@@ -127,6 +127,8 @@ a.default-ac-anchor:visited:active {
     font-family: "Segoe UI", sans-serif;
     font-size: 14px;
     color: black;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .default-ac-input.default-ac-textInput {
