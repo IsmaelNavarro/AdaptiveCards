@@ -8,121 +8,97 @@ import {
         Size,
         TextColor,
         TextSize,
-        TextWeight,
-        AdaptiveCard
+        TextWeight
     } from "adaptivecards";
 
-export class TimelineContainer extends HostContainer {
-    private _width: number;
-    private _height: number;
+    export class WebChatContainer extends HostContainer {
+        public renderTo(hostElement: HTMLElement) {
+            this.cardHost.classList.add("webChatOuterContainer");
 
-    // constructor(width: number, height: number, styleSheet: string) {
-    //     super(name, styleSheet);
+            let frame = document.createElement("div");
+            frame.className = "webChatInnerContainer";
+            frame.appendChild(this.cardHost);
 
-    //     this._width = width;
-    //     this._height = height;
-    //     // this.supportsActionBar = false;
-    // }
+            hostElement.appendChild(frame);
+        }
 
-    renderTo(hostElement: HTMLElement) {
-        AdaptiveCard.useAdvancedCardBottomTruncation = true;
-
-        let cardHost = this.cardHost;
-
-        let timelineCardChild = document.querySelector('.timeline-card > div') as HTMLElement;
-
-        let target = document.getElementById("designerHost");
-        let frame = document.createElement("div");
-        frame.className = "timeline-frame";
-        target.appendChild(frame);
-
-        let cardContainer = document.createElement("div");
-        cardContainer.className = "timeline-card";
-        frame.appendChild(cardContainer);
-        cardHost.style.height = "178px";
-        cardHost.style.width = "328px";
-        cardHost.style.overflow = "hidden";
-
-        cardContainer.appendChild(cardHost);
-        hostElement.appendChild(frame);
-    }
 
     public getHostConfig(): Adaptive.HostConfig {
         return new Adaptive.HostConfig({
             spacing: {
-                small: 4,
-                default: 12,
+                small: 3,
+                default: 8,
                 medium: 20,
                 large: 30,
                 extraLarge: 40,
-                padding: 15
+                padding: 10
             },
             separator: {
                 lineThickness: 1,
                 lineColor: "#EEEEEE"
             },
-            supportsInteractivity: false,
+            supportsInteractivity: true,
             fontFamily: "Segoe UI",
             fontSizes: {
                 small: 12,
                 default: 14,
-                medium: 20,
-                large: 20,
+                medium: 17,
+                large: 21,
                 extraLarge: 26
             },
             fontWeights: {
                 lighter: 200,
                 default: 400,
-                bolder: 700
+                bolder: 600
             },
             containerStyles: {
                 default: {
-                    backgroundColor: "#535454",
+                    backgroundColor: "#FFFFFF",
                     foregroundColors: {
                         default: {
-                            "default": "#FFFFFF",
-                            "subtle": "#9C9E9F"
+                            default: "#333333",
+                            subtle: "#EE333333"
                         },
                         accent: {
-                            "default": "#2E89FC",
-                            "subtle": "#882E89FC"
+                            default: "#2E89FC",
+                            subtle: "#882E89FC"
                         },
                         attention: {
-                            "default": "#FF0000",
-                            "subtle": "#DDFF0000"
+                            default: "#FF0000",
+                            subtle: "#DDFF0000"
                         },
                         good: {
-                            "default": "#00FF00",
-                            "subtle": "#DD00FF00"
+                            default: "#54a254",
+                            subtle: "#DD54a254"
                         },
                         warning: {
-                            "default": "#FFD800",
-                            "subtle": "#DDFFD800"
+                            default: "#c3ab23",
+                            subtle: "#DDc3ab23"
                         }
                     }
                 },
                 emphasis: {
-                    backgroundColor: "#33000000",
+                    backgroundColor: "#08000000",
                     foregroundColors: {
                         default: {
-                            "default": "#FFFFFF",
-                            "subtle": "#9C9E9F"
+                            default: "#333333",
+                            subtle: "#EE333333"
                         },
                         accent: {
-                            "default": "#2E89FC",
-                            "subtle": "#882E89FC"
+                            default: "#2E89FC",
+                            subtle: "#882E89FC"
                         },
                         attention: {
-                            "default": "#FF0000",
-                            "subtle": "#DDFF0000"
+                            default: "#FF0000",
+                            subtle: "#DDFF0000"
                         },
                         good: {
-                            "default": "#00FF00",
-                            "subtle": "#DD00FF00"
+                            default: "#54a254",
+                            subtle: "#DD54a254"
                         },
                         warning: {
-                            "default": "#FFD800",
-                            "subtle": "#DDFFD800"
+                            default: "#c3ab23",
+                            subtle: "#DDc3ab23"
                         }
                     }
                 }
@@ -130,12 +106,12 @@ export class TimelineContainer extends HostContainer {
             imageSizes: {
                 small: 40,
                 medium: 80,
-                large: 120
+                large: 160
             },
             actions: {
                 maxActions: 5,
                 spacing: Spacing.Default,
-                buttonSpacing: 20,
+                buttonSpacing: 10,
                 showCard: {
                     actionMode: ShowCardActionMode.Inline,
                     inlineTopMargin: 16
@@ -156,15 +132,15 @@ export class TimelineContainer extends HostContainer {
                     size: TextSize.Default,
                     isSubtle: false,
                     weight: TextWeight.Bolder,
-                    wrap: false,
-                    maxWidth: 150,
+                    wrap: true,
+                    maxWidth: 150
                 },
                 value: {
                     color: TextColor.Default,
                     size: TextSize.Default,
                     isSubtle: false,
                     weight: TextWeight.Default,
-                    wrap: true,
+                    wrap: true
                 },
                 spacing: 10
             }

@@ -13,6 +13,7 @@ import { adaptiveCardSchema } from "./adaptive-card-schema";
 import Treeview from "./components/treeview";
 import FullScreenHandler from "./components/fullscreenhandler";
 import { TimelineContainer } from "./containers/timeline-container";
+import { WebChatContainer } from "./containers/webchat-container";
 
 declare var monacoEditor: any;
 declare function loadMonacoEditor(schema, callback);
@@ -269,11 +270,14 @@ class DesignerApp {
     }
 
     private addContainers() {
-        this.hostContainers.push(new OutlookContainer("Outlook Actionable Messages", "css/outlook-container.css"));
+        this.hostContainers.push(new WebChatContainer("Bot Framework WebChat", "css/webchat-container.css"));
         this.hostContainers.push(new CortanaContainer("Cortana Skills", "css/cortana-container.css"));
         this.hostContainers.push(new TimelineContainer("Windows Timeline", "css/timeline-container.css"));
         this.hostContainers.push(new SkypeContainer("Skype (Preview)", "css/skype-container.css"));
-        this.hostContainers.push(new TeamsContainer("Teams", "css/teams-container.css"));
+        this.hostContainers.push(new OutlookContainer("Outlook Actionable Messages", "css/outlook-container.css"));
+        this.hostContainers.push(new TeamsContainer("Microsoft Teams (Preview)", "css/teams-container.css"));
+        // this.hostContainers.push(new WindowsNotificationsContainer("Windows Notifications(Preview)", "css/windows-notifications-container.css"));
+        // this.hostContainers.push(new BotFrameworkContainer("Bot Framework Other Channels (Image render)", "css/bot-framework-container.css"));
     }
 
     private recreateDesigner() {
