@@ -45,10 +45,10 @@
     background-color: rgba(0, 0, 0, 0.15) !important;
   }
 
-  .ac-container {
+  .toast-card > div {
     border: 1px solid rgb(71, 71, 71);
+    width: 362px !important;
     overflow: hidden;
-    width: 362px;
   }
 
   .ac-pushButton {
