@@ -394,6 +394,35 @@ class DesignerApp {
         this.designer.endDrag();
     }
 
+    private cloneNodeTreeview(): void {
+        const treeview = document.querySelector(".js-treeview-menu");
+        let aside = document.querySelector(".js-aside-panel");
+
+        document.querySelector(".js-treeview-bullet").addEventListener("click", () => {
+            const treeviewNode = treeview.cloneNode(true);
+            aside.classList.add("is-active");
+            aside.appendChild(treeviewNode);
+
+            (document.querySelector(".js-treeview") as HTMLElement).style.display = "none";
+            (document.querySelector(".js-treeview-splitter") as HTMLElement).style.display = "none";
+
+        });
+    }
+
+    private cloneNodeProperties(): void {
+        const properties = document.querySelector(".js-properties-menu");
+        let aside = document.querySelector(".js-aside-panel");
+
+        document.querySelector(".js-properties-bullet").addEventListener("click", () => {
+            const propertiesNode = properties.cloneNode(true);
+            aside.classList.add("is-active");
+            aside.appendChild(propertiesNode);
+
+            (document.querySelector(".js-properties") as HTMLElement).style.display = "none";
+            (document.querySelector(".js-properties-splitter") as HTMLElement).style.display = "none";
+        });
+    }
+
     private toggleAside():void {
         document.querySelector(".js-aside-bullet").addEventListener("click", () => {
             const aside = document.querySelector(".js-aside");
@@ -410,42 +439,13 @@ class DesignerApp {
         })
     }
 
-    private toggleTreeview():void {
-        document.querySelector(".js-treeview-bullet").addEventListener("click", () => {
-            const aside = document.querySelector(".js-treeview");
-            aside.classList.toggle("is-toggled");
-
-            const items = document.querySelector(".js-treeview-items");
-            items.classList.toggle("is-hidden");
-
-            const icon = document.querySelector(".js-treeview-icon");
-            icon.classList.toggle("icon--expand");
-
-            const description = document.querySelector(".js-treeview-description");
-            description.classList.toggle("is-hidden");
-        })
-    }
-
-    private toggleProperties():void {
-        document.querySelector(".js-properties-bullet").addEventListener("click", () => {
-            const aside = document.querySelector(".js-properties");
-            aside.classList.toggle("is-toggled");
-
-            const items = document.querySelector(".ac-container");
-            items.classList.toggle("is-hidden");
-
-            const icon = document.querySelector(".js-properties-icon");
-            icon.classList.toggle("icon--expand");
-
-            const description = document.querySelector(".js-properties-description");
-            description.classList.toggle("is-hidden");
-        })
-    }
-
-    public activateToggles():void {
+    public togglePanels():void {
         this.toggleAside();
-        this.toggleProperties();
-        this.toggleTreeview();
+    }
+
+    public toggleNodesPosition(): void {
+        this.cloneNodeProperties();
+        this.cloneNodeTreeview();
     }
 
     get paletteHostElement(): HTMLElement {
@@ -589,7 +589,8 @@ window.onload = () => {
 
     app.createContainerPicker().attach(document.getElementById("containerPickerHost"));
 
-    app.activateToggles();
+    app.togglePanels();
+    app.toggleNodesPosition();
 
     window.addEventListener("pointermove", (e: PointerEvent) => { app.handlePointerMove(e); });
     window.addEventListener("resize", () => { scheduleLayoutUpdate(); });
