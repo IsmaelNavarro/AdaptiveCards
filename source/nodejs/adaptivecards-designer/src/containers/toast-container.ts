@@ -13,10 +13,10 @@ import {
 
 export class ToastContainer extends HostContainer {
     public renderTo(hostElement: HTMLElement) {
-        this.cardHost.classList.add("teams-card");
+        this.cardHost.classList.add("toast-card");
 
         let frame = document.createElement("div");
-        frame.className = "teams-frame";
+        frame.className = "toast-frame";
         frame.appendChild(this.cardHost);
 
         hostElement.appendChild(frame);
