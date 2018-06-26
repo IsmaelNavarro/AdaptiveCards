@@ -29,7 +29,7 @@ function monacoEditorLoaded() {
         function (e) {
             scheduleCardRefresh();
         });
-
+    document.querySelector(".monaco-editor").insertAdjacentHTML("afterbegin", "<div class='jsonEditorHost-title'>JSON</div>");
     isMonacoEditorLoaded = true;
 
     updateJsonFromCard();
