@@ -106,7 +106,7 @@ class PaletteItem extends Designer.DraggableElement {
     protected internalRender(): HTMLElement {
         let element = document.createElement("li");
         element.className = `aside-item aside-item__icon aside-item__icon--${Utils.sanitizeString(this.typeRegistration.typeName)}`;
-        element.innerText = Utils.sanitizeName(this.typeRegistration.typeName);
+        element.innerText = this.typeRegistration.typeName;
 
         return element;
     }
