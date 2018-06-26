@@ -394,33 +394,46 @@ class DesignerApp {
         this.designer.endDrag();
     }
 
-    private cloneNodeTreeview(): void {
-        const treeview = document.querySelector(".js-treeview-menu");
+    private handleClosePanel(panelType: string): void {
+        const typeOfPanel = document.querySelector(`.js-${panelType}-menu`);
+        let description = document.querySelector(`.js-${panelType}-description`);
         let aside = document.querySelector(".js-aside-panel");
 
-        document.querySelector(".js-treeview-bullet").addEventListener("click", () => {
-            const treeviewNode = treeview.cloneNode(true);
-            aside.classList.add("is-active");
-            aside.appendChild(treeviewNode);
+        if (aside.childNodes.length === 0) {
+            document.querySelector(`.js-${panelType}-bullet`).addEventListener("click", () => {
+                description.innerHTML = "Show";
+                const elementNode = typeOfPanel.cloneNode(true);
+                elementNode.addEventListener("click", () => {
+                    description.innerHTML = "Hide";
+                    this.openPanel(panelType);
+                });
+                aside.classList.add("is-active");
+                aside.appendChild(elementNode);
 
-            (document.querySelector(".js-treeview") as HTMLElement).style.display = "none";
-            (document.querySelector(".js-treeview-splitter") as HTMLElement).style.display = "none";
-
-        });
+                (document.querySelector(`.js-${panelType}`) as HTMLElement).style.display = "none";
+                (document.querySelector(`.js-${panelType}-splitter`) as HTMLElement).style.display = "none";
+            });
+        }
     }
 
-    private cloneNodeProperties(): void {
-        const properties = document.querySelector(".js-properties-menu");
-        let aside = document.querySelector(".js-aside-panel");
+    private openPanel(panelType: string): void {
+        if (document.querySelector(".js-aside-panel").hasChildNodes()) {
+            let foldedPanel = document.querySelector(`.js-aside-panel.is-active > .js-${panelType}-menu`);
+            let aside = document.querySelector(".js-aside-panel");
 
-        document.querySelector(".js-properties-bullet").addEventListener("click", () => {
-            const propertiesNode = properties.cloneNode(true);
-            aside.classList.add("is-active");
-            aside.appendChild(propertiesNode);
+            (document.querySelector(`.js-${panelType}`) as HTMLElement).style.display = "block";
+            (document.querySelector(`.js-${panelType}-splitter`) as HTMLElement).style.display = "block";
+            foldedPanel.remove();
 
-            (document.querySelector(".js-properties") as HTMLElement).style.display = "none";
-            (document.querySelector(".js-properties-splitter") as HTMLElement).style.display = "none";
-        });
+            if (aside.childNodes.length === 0) {
+                (aside as HTMLElement).classList.toggle("is-active");
+            }
+        }
+    }
+
+    public cloneNodesTrees(): void {
+        this.handleClosePanel("treeview");
+        this.handleClosePanel("properties");
     }
 
     private toggleAside():void {
@@ -439,13 +452,8 @@ class DesignerApp {
         })
     }
 
-    public togglePanels():void {
+    public togglePanels(): void {
         this.toggleAside();
-    }
-
-    public toggleNodesPosition(): void {
-        this.cloneNodeProperties();
-        this.cloneNodeTreeview();
     }
 
     get paletteHostElement(): HTMLElement {
@@ -590,7 +598,7 @@ window.onload = () => {
     app.createContainerPicker().attach(document.getElementById("containerPickerHost"));
 
     app.togglePanels();
-    app.toggleNodesPosition();
+    app.cloneNodesTrees();
 
     window.addEventListener("pointermove", (e: PointerEvent) => { app.handlePointerMove(e); });
     window.addEventListener("resize", () => { scheduleLayoutUpdate(); });
