@@ -73,7 +73,8 @@
 }
 
 .acd-peer.selected {
-    border: solid 1px #78dd03 !important;
+    background-color: rgba(227, 255, 218, 0.1);
+    border: solid 1px #78dd03;
 }
 
 .acd-peer.dragover {
@@ -95,8 +96,6 @@
 .acd-separation.selected {
     background-color: rgba(255, 0, 0, 0.2);
 }
-
-
 
 /*
 * Header and Aside menus
@@ -153,14 +152,12 @@
     color: #4a4a4a;
 }
 
-
-
 /*
 * Aside
 */
 .aside {
-    background-color: #F9F9F9;
-    border-right: 1px solid #D2D2D2;
+    background-color: #f9f9f9;
+    border-right: 1px solid #d2d2d2;
     flex: 1 0 180px;
     overflow-y: auto;
 }
@@ -169,7 +166,6 @@
     width: 170px;
     height: 30px;
 }
-
 
 .is-toggled .aside-menu {
     transform: translate(-72px, 70px) rotate(-90deg);
@@ -200,7 +196,7 @@
     font-size: 14px;
     list-style-type: none;
     margin-bottom: 8px;
-    white-space: nowrap
+    white-space: nowrap;
 }
 
 .aside-title {
@@ -213,7 +209,7 @@
     margin-bottom: 6px;
     position: relative;
     white-space: nowrap;
-  }
+}
 
 .aside-title:not(:first-of-type) {
     margin-top: 12px;
@@ -221,11 +217,11 @@
 
 .aside-title::after {
     border-bottom: 1px solid #e0e0e0;
-    content: '';
+    content: "";
     margin-bottom: -3px;
     margin-left: 8px;
     width: 100%;
-  }
+}
 
 .aside-item__icon {
     background-repeat: no-repeat;
@@ -292,8 +288,6 @@
     background-image: url("/assets/icons/textblock.svg");
 }
 
-
-
 /*
 * Aside Panel
 */
@@ -306,7 +300,7 @@
     height: 100vh;
     position: relative;
     width: 31px;
-    border-left: 1px solid #D2D2D2;
+    border-left: 1px solid #d2d2d2;
 }
 
 .aside-panel .treeview-menu,
@@ -329,8 +323,6 @@
 .aside-panel .properties-menu__icon {
     background-image: url("/assets/icons/expand.svg");
 }
-
-
 
 /*
 * Toolbar
@@ -377,8 +369,6 @@
 .toolbar-btn__icon-fullscreen.is-fullscreen::before {
     content: url("/assets/icons/exitfullscreen.svg");
 }
-
-
 
 /*
 * Treeview Style
