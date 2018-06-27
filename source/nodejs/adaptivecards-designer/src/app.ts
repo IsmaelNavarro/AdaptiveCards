@@ -401,7 +401,7 @@ class DesignerApp {
 
         if (aside.childNodes.length === 0) {
             document.querySelector(`.js-${panelType}-bullet`).addEventListener("click", () => {
-                description.innerHTML = "Show";
+                description.innerHTML = "";
                 const elementNode = typeOfPanel.cloneNode(true);
                 elementNode.addEventListener("click", () => {
                     description.innerHTML = "Hide";

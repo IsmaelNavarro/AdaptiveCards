@@ -165,16 +165,14 @@
     overflow-y: auto;
 }
 
-.is-toggled .aside-menu,
-.is-toggled .treeview-menu,
-.is-toggled .properties-menu {
-    width: 180px;
+.is-toggled .aside-menu {
+    width: 170px;
     height: 30px;
 }
 
 
 .is-toggled .aside-menu {
-    transform: translate(-75px, 74px) rotate(-90deg);
+    transform: translate(-72px, 70px) rotate(-90deg);
 }
 
 .aside.is-toggled {
@@ -314,8 +312,8 @@
 .aside-panel .treeview-menu,
 .aside-panel .properties-menu {
     height: 30px;
-    transform: translate(-85px, 85px) rotate(90deg);
-    width: 200px;
+    transform: translate(-70px, 70px) rotate(90deg);
+    width: 170px;
     align-items: center;
     background-color: #d8d8d8;
     display: flex;
@@ -324,7 +322,7 @@
 }
 
 .aside-panel nav:nth-child(2) {
-    transform: translate(-85px, 256px) rotate(90deg);
+    transform: translate(-70px, 211px) rotate(90deg);
 }
 
 .aside-panel .treeview-menu__icon,
