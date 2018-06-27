@@ -274,7 +274,7 @@ class DesignerApp {
     private addContainers() {
         this.hostContainers.push(new WebChatContainer("Bot Framework WebChat", "css/webchat-container.css"));
         this.hostContainers.push(new CortanaContainer("Cortana Skills", "css/cortana-container.css"));
-        this.hostContainers.push(new TimelineContainer("Windows Timeline", "css/timeline-container.css"));
+        // this.hostContainers.push(new TimelineContainer("Windows Timeline", "css/timeline-container.css")); This element overflows it's container and can't fit the content
         this.hostContainers.push(new SkypeContainer("Skype (Preview)", "css/skype-container.css"));
         this.hostContainers.push(new OutlookContainer("Outlook Actionable Messages", "css/outlook-container.css"));
         this.hostContainers.push(new TeamsContainer("Microsoft Teams (Preview)", "css/teams-container.css"));
