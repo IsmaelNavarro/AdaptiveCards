@@ -224,15 +224,21 @@ class DesignerApp {
                 }
             }
 
-            for (let i = 0; i < Adaptive.AdaptiveCard.elementTypeRegistry.getItemCount(); i++) {
-                const element = Adaptive.AdaptiveCard.elementTypeRegistry.getItemAt(i);
-                Object.keys(categoriesMap).map(category => {
-                    if (categoriesMap[category].items.indexOf(element.typeName) !== -1) {
+            let categoriesMapKeys = Object.keys(categoriesMap);
+            for (let i = 0; i < categoriesMapKeys.length; i++) {
+                const category = categoriesMapKeys[i];
+                const categoryItems = categoriesMap[category].items;
+                for (let j = 0; j < categoryItems.length; j++) {
+                    let item = categoryItems[j];
+                    let itemType = Adaptive.AdaptiveCard.elementTypeRegistry.getItems().find(elementType => {
+                        return elementType.typeName === item;
+                    });
+                    if (typeof itemType !== "undefined") {
                         sortedRegisteredTypes[category] = sortedRegisteredTypes[category] || {};
                         sortedRegisteredTypes[category].title = sortedRegisteredTypes[category].title || categoriesMap[category].title;
-                        sortedRegisteredTypes[category].items = Array.isArray(sortedRegisteredTypes[category].items) ? [...sortedRegisteredTypes[category].items, element] : [element];
+                        sortedRegisteredTypes[category].items = Array.isArray(sortedRegisteredTypes[category].items) ? [...sortedRegisteredTypes[category].items, itemType] : [itemType];
                     }
-                });
+                }
             }
 
             Object.keys(sortedRegisteredTypes).forEach(objectKey => {
