@@ -1179,7 +1179,7 @@ export class Image extends CardElement {
                     message: "Invalid image " + name + ": " + value
                 },
                 errors
-            );    
+            );
         }
 
         return 0;
@@ -2374,7 +2374,7 @@ export abstract class Action {
         if (this.onExecute) {
             this.onExecute(this);
         }
-        
+
         raiseExecuteActionEvent(this);
     }
 
@@ -2405,7 +2405,7 @@ export abstract class Action {
 
     parse(json: any, errors?: Array<IValidationError>) {
         raiseParseActionEvent(this, json, errors);
-	    
+
         this.id = json["id"];
         this.title = json["title"];
         this.iconUrl = json["iconUrl"];
@@ -5009,7 +5009,7 @@ export class AdaptiveCard extends ContainerWithActions {
                         message: e.message
                     },
                     errors
-                );                        
+                );
             }
         }
 
