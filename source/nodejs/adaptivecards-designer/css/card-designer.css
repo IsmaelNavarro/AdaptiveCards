@@ -512,14 +512,9 @@
 /*
 * Fixes Properties Panel CSS inline styles added via JavaScript
 */
-.default-ac-columnSet.wrapper .default-ac-container:nth-child(1),
-.default-ac-columnSet.wrapper .default-ac-container:nth-child(3) {
-    flex-direction: row !important;
-}
+
 
 .default-ac-columnSet.wrapper .default-ac-container:nth-child(1) {
-    justify-content: flex-end !important;
-    align-items: center;
     padding-right: 6px !important;
     flex: 1 1 140px !important;
     margin-left: 10px;

@@ -5140,7 +5140,7 @@ const defaultHostConfig: HostConfig.HostConfig = new HostConfig.HostConfig(
         },
         containerStyles: {
             default: {
-                backgroundColor: "#FFFFFF",
+                backgroundColor: "#F9F9F9",
                 foregroundColors: {
                     default: {
                         default: "#333333",
