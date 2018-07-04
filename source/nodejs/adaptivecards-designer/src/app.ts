@@ -313,6 +313,45 @@ class DesignerApp {
 
                 }
             });
+
+            /* This is to test "snippet" support. Snippets are not yet fully baked
+            let personaHeaderSnippet = new SnippetPaletteItem("Persona header");
+            personaHeaderSnippet.snippet = {
+                type: "ColumnSet",
+                columns: [
+                    {
+                        width: "auto",
+                        items: [
+                            {
+                                type: "Image",
+                                size: "Small",
+                                style: "Person",
+                                url: "https://pbs.twimg.com/profile_images/3647943215/d7f12830b3c17a5a9e4afcc370e3a37e_400x400.jpeg"
+                            }
+                        ]
+                    },
+                    {
+                        width: "stretch",
+                        items: [
+                            {
+                                type: "TextBlock",
+                                text: "John Doe",
+                                weight: "Bolder",
+                                wrap: true
+                            },
+                            {
+                                type: "TextBlock",
+                                spacing: "None",
+                                text: "Additional information",
+                                wrap: true
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            this.addPaletteItem(personaHeaderSnippet);
+            */
         }
     }
 
