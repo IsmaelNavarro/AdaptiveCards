@@ -1272,7 +1272,7 @@ export class Image extends CardElement {
                     errorElement.style.display = "flex";
                     errorElement.style.alignItems = "center";
                     errorElement.style.justifyContent = "center";
-                    errorElement.style.backgroundColor = "#EEEEEE";
+                    errorElement.style.backgroundColor = "#eeeeee";
                     errorElement.style.color = "black";
                     errorElement.innerText = ":-(";
                     errorElement.style.padding = "10px";

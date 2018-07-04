@@ -125,7 +125,7 @@ class ElementPaletteItem extends BasePaletteItem {
     protected getText(): string {
         return this.typeRegistration.typeName;
     }
-    
+
     readonly typeRegistration: Adaptive.ITypeRegistration<Adaptive.CardElement>;
 
     constructor(typeRegistration: Adaptive.ITypeRegistration<Adaptive.CardElement>) {
@@ -146,7 +146,7 @@ class SnippetPaletteItem extends BasePaletteItem {
     protected getText(): string {
         return this.name;
     }
-    
+
     readonly name: string;
     snippet: object;
 
@@ -168,7 +168,7 @@ class SnippetPaletteItem extends BasePaletteItem {
 
                     let peer = Designer.CardDesigner.cardElementPeerRegistry.createPeerInstance(designer, null, adaptiveElement);
                     peer.initializeCardElement();
-            
+
                     return peer;
                 }
             }
@@ -236,7 +236,6 @@ class DesignerApp {
 
             properties.appendChild(card.render());
             let cardNodes = card.renderedElement.children;
-            (cardNodes[0] as HTMLElement).style.backgroundColor = "transparent";
 
             for (let element = 0; element < cardNodes.length; element++) {
                 (cardNodes[element] as HTMLElement).className += " wrapper";
@@ -259,7 +258,7 @@ class DesignerApp {
 
         this.paletteHostElement.appendChild(paletteItem.renderedElement);
     }
-    
+
     private buildPalette() {
         if (this.paletteHostElement) {
             this.paletteHostElement.innerHTML = "";
@@ -311,7 +310,7 @@ class DesignerApp {
                 for (var i = 0; i < sortedRegisteredTypes[objectKey].items.length; i++) {
                     var paletteItem = new ElementPaletteItem(sortedRegisteredTypes[objectKey].items[i]);
                     this.addPaletteItem(paletteItem);
-                    
+
                 }
             });
         }
@@ -341,7 +340,7 @@ class DesignerApp {
 
     private recreateDesigner() {
         let styleSheetLinkElement = <HTMLLinkElement>document.getElementById("adaptiveCardStylesheet");
-    
+
         if (styleSheetLinkElement == null) {
             styleSheetLinkElement = document.createElement("link");
             styleSheetLinkElement.id = "adaptiveCardStylesheet";
@@ -358,7 +357,7 @@ class DesignerApp {
         if (designerBackground) {
             designerBackground.style.backgroundColor = this._selectedHostContainer.getBackgroundColor();
         }
-    
+
         this._selectedHostContainer.initialize();
 
         this._designerHostElement.innerHTML = "";
@@ -602,7 +601,7 @@ class Splitter {
     private pointerMove(e: PointerEvent) {
         if (this._isPointerDown) {
             e.preventDefault();
-            
+
             let sizeApplied = false;
 
             if (this.isVertical) {
