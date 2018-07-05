@@ -325,8 +325,8 @@
     transform: translate(-70px, 211px) rotate(90deg);
 }
 
-.aside-panel .treeview-menu__icon,
-.aside-panel .properties-menu__icon {
+.aside-panel .treeview-menu__icon::before,
+.aside-panel .properties-menu__icon::before {
     content: "\F164";
     margin-right: 0;
     font-family: "FabricMDL2Icons";
