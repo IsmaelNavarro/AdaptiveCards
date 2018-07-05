@@ -123,21 +123,20 @@
     display: flex;
 }
 
-.acd-aside-menu__icon,
-.treeview-menu__icon,
-.properties-menu__icon {
-    background-image: url("/assets/icons/hide.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+.acd-aside-menu__icon::before,
+.treeview-menu__icon::before,
+.properties-menu__icon::before {
+    content: "\F166";
     display: inline-block;
-    height: 20px;
+    font-family: "FabricMDL2Icons";
     margin-right: 4px;
-    width: 20px;
+    margin-top: 3px;
 }
 
-.icon--expand {
-    background-image: url("/assets/icons/expand.svg");
+.icon--expand::before {
+    content: "\F164";
     margin-right: 0;
+    font-family: "FabricMDL2Icons";
 }
 
 .acd-aside-menu__description,
@@ -226,60 +225,73 @@
     padding-left: 36px;
 }
 
-.aside-item__icon--actionset {
-    background-image: url("/assets/icons/actionset.svg");
+.aside-item__icon--actionset::before,
+.aside-item__icon--columnset::before,
+.aside-item__icon--container::before,
+.aside-item__icon--factset::before,
+.aside-item__icon--image::before,
+.aside-item__icon--imageset::before,
+.aside-item__icon--choice::before,
+.aside-item__icon--inputchoiceset::before,
+.aside-item__icon--inputdate::before,
+.aside-item__icon--inputnumber::before,
+.aside-item__icon--inputtext::before,
+.aside-item__icon--inputtime::before,
+.aside-item__icon--inputtoggle::before,
+.aside-item__icon--textblock::before {
+    font-family: "FabricMDL2Icons";
+    left: 28px;
+    margin-top: 3px;
+    position: absolute;
 }
 
-.aside-item__icon--columnset {
-    background-image: url("/assets/icons/column-set.svg");
+.aside-item__icon--columnset::before {
+    content: "\F1D5";
 }
 
-.aside-item__icon--container {
-    background-image: url("/assets/icons/container.svg");
+.aside-item__icon--container::before {
+    content: "\E739";
 }
 
-.aside-item__icon--factset {
-    background-image: url("/assets/icons/fact-set.svg");
+.aside-item__icon--factset::before {
+    content: "\F2A2";
 }
 
-.aside-item__icon--image {
-    background-image: url("/assets/icons/image.svg");
+.aside-item__icon--image::before {
+    content: "\EB9F";
 }
 
-.aside-item__icon--imageset {
-    background-image: url("/assets/icons/image-set.svg");
+.aside-item__icon--imageset::before {
+    /* TODO: Can't find content value in FabricUI */
+    content: "\EEC2";
 }
 
-.aside-item__icon--choice {
-    background-image: url("/assets/icons/choice.svg");
+.aside-item__icon--inputchoiceset::before {
+    content: "\F2C7";
 }
 
-.aside-item__icon--inputchoiceset {
-    background-image: url("/assets/icons/choiceset.svg");
+.aside-item__icon--inputdate::before {
+    content: "\E787";
 }
 
-.aside-item__icon--inputdate {
-    background-image: url("/assets/icons/date.svg");
+.aside-item__icon--inputnumber::before {
+    content: "\EDC4";
 }
 
-.aside-item__icon--inputnumber {
-    background-image: url("/assets/icons/inputnumber.svg");
+.aside-item__icon--inputtext::before {
+    content: "\EDC3";
 }
 
-.aside-item__icon--inputtext {
-    background-image: url("/assets/icons/inputtext.svg");
+.aside-item__icon--inputtime::before {
+    content: "\E917";
 }
 
-.aside-item__icon--inputtime {
-    background-image: url("/assets/icons/time.svg");
+.aside-item__icon--inputtoggle::before {
+    content: "\E73A";
 }
 
-.aside-item__icon--inputtoggle {
-    background-image: url("/assets/icons/toggle.svg");
-}
-
-.aside-item__icon--textblock {
-    background-image: url("/assets/icons/textblock.svg");
+.aside-item__icon--textblock::before {
+    content: "\EC7D";
 }
 
 /*
@@ -315,7 +327,9 @@
 
 .aside-panel .treeview-menu__icon,
 .aside-panel .properties-menu__icon {
-    background-image: url("/assets/icons/expand.svg");
+    content: "\F164";
+    margin-right: 0;
+    font-family: "FabricMDL2Icons";
 }
 
 /*
