@@ -738,7 +738,7 @@ window.onload = () => {
     app.propertySheetHostElement = document.getElementById("propertySheetHost");
     app.treeViewSheetHostElement = document.getElementById("treeViewSheetHost");
     app.commandListHostElement = document.getElementById("commandsHost");
-    app.paletteHostElement = document.querySelector(".aside-items");
+    app.paletteHostElement = document.getElementById("toolPalette");
 
     app.createContainerPicker().attach(document.getElementById("containerPickerHost"));
 
