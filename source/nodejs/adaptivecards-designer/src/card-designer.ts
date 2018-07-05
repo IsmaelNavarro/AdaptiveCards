@@ -1021,7 +1021,6 @@ export class CardElementPeer extends DesignerPeer {
     addPropertySheetEntries(card: Adaptive.AdaptiveCard, includeHeader: boolean) {
         if (includeHeader) {
             let container = new Adaptive.Container();
-            //container.style = "emphasis";
             container.padding = new Adaptive.PaddingDefinition(
                 Adaptive.Spacing.Small,
                 Adaptive.Spacing.Small,
