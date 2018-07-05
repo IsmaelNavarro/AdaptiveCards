@@ -99,12 +99,16 @@
 .properties-menu {
     align-items: center;
     background-color: #d8d8d8;
-    cursor: pointer;
     display: flex;
     height: 30px;
     justify-content: space-between;
     padding: 6px 12px;
     user-select: none;
+}
+
+.aside-panel .treeview-menu,
+.aside-panel .properties-menu  {
+    cursor: pointer;
 }
 
 .acd-aside-menu__title,
@@ -121,6 +125,7 @@
 .treeview-menu__bullet,
 .properties-menu__bullet {
     align-items: center;
+    cursor: pointer;
     display: flex;
 }
 
