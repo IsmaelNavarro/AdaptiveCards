@@ -352,16 +352,23 @@
     position: absolute;
 }
 
+.toolbar-btn__icon-copy::before,
+.toolbar-btn__icon-fullscreen::before,
+.toolbar-btn__icon-fullscreen.is-fullscreen::before {
+    font-family: "FabricMDL2Icons";
+}
+
+
 .toolbar-btn__icon-copy::before {
-    content: url("/assets/icons/copy.svg");
+    content: "\E8C8";
 }
 
 .toolbar-btn__icon-fullscreen::before {
-    content: url("/assets/icons/fullscreen.svg");
+    content: "\E740";
 }
 
 .toolbar-btn__icon-fullscreen.is-fullscreen::before {
-    content: url("/assets/icons/exitfullscreen.svg");
+    content: "\E73F";
 }
 
 /*
@@ -511,8 +518,6 @@
 /*
 * Fixes Properties Panel CSS inline styles added via JavaScript
 */
-
-
 .default-ac-columnSet.wrapper .default-ac-container:nth-child(1) {
     padding-right: 6px !important;
     flex: 1 1 140px !important;
