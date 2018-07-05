@@ -50,7 +50,6 @@ function updateJsonFromCard() {
 
         if (!preventJsonUpdate && isMonacoEditorLoaded) {
             monacoEditor.setValue(JSON.stringify(app.card.toJSON(), null, 4));
-            app.buildTreeViewSheet(app.designer.selectedPeer);
         }
     }
     finally {
@@ -73,7 +72,6 @@ function updateCardFromJson() {
         preventJsonUpdate = true;
         if (!preventCardUpdate) {
             app.designer.parseCard(getCurrentJsonPayload());
-            app.buildTreeViewSheet(app.designer.selectedPeer);
         }
     }
     finally {
@@ -188,15 +186,12 @@ class DesignerApp {
     private _selectedHostContainer: HostContainer;
     private _treeViewComponent: Treeview;
 
-    public buildTreeViewSheet(peer: Designer.DesignerPeer) {
+    public buildTreeViewSheet() {
         if (this.treeViewSheetHostElement) {
             let treeview = this.treeViewSheetHostElement.getElementsByClassName("treeview-items")[0];
             treeview.innerHTML = "";
 
-            const items = [...this._card.getItems(), ...this._card.getActions()];
-            this._treeViewComponent.updateDesigner(this._designer);
-            const listItems = this._treeViewComponent.generateTreeViewElements(items, peer);
-            treeview.appendChild(listItems);
+            treeview.appendChild(this.designer.rootPeer.treeItem.render());
         }
     }
 
@@ -405,12 +400,12 @@ class DesignerApp {
         this._designer = new Designer.CardDesigner(this._selectedHostContainer.cardHost);
         this._designer.onSelectedPeerChanged = (peer: Designer.CardElementPeer) => {
             this.buildPropertySheet(peer);
-            this.buildTreeViewSheet(peer);
         };
         this._designer.onLayoutUpdated = (isFullRefresh: boolean) => {
             if (isFullRefresh) {
                 scheduleJsonUpdate();
             }
+            this.buildTreeViewSheet();
         };
         this._designer.onCardValidated = (errors: Array<Adaptive.IValidationError>) => {
             let errorPane = document.getElementById("errorPane");
@@ -443,7 +438,6 @@ class DesignerApp {
 
         this.buildPalette();
         this.buildPropertySheet(null);
-        this.buildTreeViewSheet(null);
 
         if (this._card) {
             this._card.hostConfig = this._selectedHostContainer.getHostConfig();
