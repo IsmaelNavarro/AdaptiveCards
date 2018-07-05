@@ -452,77 +452,96 @@
     width: 20px;
 }
 
-.treeview__icon--arrow {
-    background-image: url("/assets/icons/arrow.svg");
+.treeview__icon--arrow::before,
+.treeview__icon--textblock::before,
+.treeview__icon--factset::before,
+.treeview__icon--image::before,
+.treeview__icon--imageset::before,
+.treeview__icon--inputtext::before,
+.treeview__icon--inputtoggle::before,
+.treeview__icon--inputnumber::before,
+.treeview__icon--inputdate::before,
+.treeview__icon--inputtime::before,
+.treeview__icon--inputchoiceset::before,
+.treeview__icon--actionsubmit::before,
+.treeview__icon--actionopenurl::before,
+.treeview__icon--container::before,
+.treeview__icon--column::before,
+.treeview__icon--columnset::before,
+.treeview__icon--actionshowcard::before,
+.treeview__icon--arrow.is-rotated::before {
+    font-family: "FabricMDL2Icons";
+}
+
+
+.treeview__icon--arrow::before {
+    content: "\F08E";
     margin-right: 0;
 }
 
-.treeview__icon--textblock {
-    background-image: url("/assets/icons/textblock.svg");
+.treeview__icon--textblock::before {
+    content: "\EC7D";
 }
 
-.treeview__icon--factset {
-    background-image: url("/assets/icons/fact-set.svg");
+.treeview__icon--factset::before {
+    content: "\F2A2";
 }
 
-.treeview__icon--image {
-    background-image: url("/assets/icons/image.svg");
+.treeview__icon--image::before {
+    content: "\EB9F";
 }
 
-.treeview__icon--imageset {
-    background-image: url("/assets/icons/image-set.svg");
+.treeview__icon--imageset::before {
+    /* TODO: Can't find content value in FabricUI */
+    content: "\EEC2";
 }
 
-.treeview__icon--inputtext {
-    background-image: url("/assets/icons/inputtext.svg");
+.treeview__icon--inputtext::before {
+    content: "\EDC3";
 }
 
-.treeview__icon--inputtoggle {
-    background-image: url("/assets/icons/toggle.svg");
+.treeview__icon--inputtoggle::before {
+    content: "\E73A";
 }
 
-.treeview__icon--inputnumber {
-    background-image: url("/assets/icons/inputnumber.svg");
+.treeview__icon--inputnumber::before {
+    content: "\EDC4";
 }
 
-.treeview__icon--inputdate {
-    background-image: url("/assets/icons/icon-date.svg");
+.treeview__icon--inputdate::before {
+    content: "\E787";
 }
 
-.treeview__icon--inputtime {
-    background-image: url("/assets/icons/time.svg");
+.treeview__icon--inputtime::before {
+    content: "\E917";
 }
 
-.treeview__icon--inputchoiceset {
-    background-image: url("/assets/icons/choiceset.svg");
+.treeview__icon--inputchoiceset::before {
+    content: "\F2C7";
 }
 
-.treeview__icon--actionsubmit {
-    background-image: url("/assets/icons/submit.svg");
+.treeview__icon--actionopenurl::before {
+    content: "\E89F";
 }
 
-.treeview__icon--actionopenurl {
-    background-image: url("/assets/icons/open-url.svg");
+.treeview__icon--container::before {
+    content: "\E739";
 }
 
-.treeview__icon--container {
-    background-image: url("/assets/icons/container.svg");
+.treeview__icon--column::before {
+    content: "\F1D4";
 }
 
-.treeview__icon--column {
-    background-image: url("/assets/icons/column.svg");
+.treeview__icon--columnset::before {
+    content: "\F1D5";
 }
 
-.treeview__icon--columnset {
-    background-image: url("/assets/icons/column-set.svg");
+.treeview__icon--actionshowcard::before {
+    content: "\EEBD";
 }
 
-.treeview__icon--actionshowcard {
-    background-image: url("/assets/icons/showcard.svg");
-}
-
-.treeview__icon--arrow.is-rotated {
-    background-image: url("/assets/icons/arrow-rotated.svg");
+.treeview__icon--arrow.is-rotated::before {
+    content: "\F08F";
 }
 
 .btn {
