@@ -13,7 +13,6 @@ import { WebChatContainer } from "./containers/webchat-container";
 import { ToastContainer } from "./containers/toast-container";
 import { BotFrameworkContainer } from "./containers/bf-image-container";
 import { adaptiveCardSchema } from "./adaptive-card-schema";
-import Treeview from "./components/treeview";
 import FullScreenHandler from "./components/fullscreenhandler";
 
 declare var monacoEditor: any;
@@ -184,7 +183,6 @@ class DesignerApp {
     private _card: Adaptive.AdaptiveCard;
     private _hostContainerPicker: Controls.DropDown;
     private _selectedHostContainer: HostContainer;
-    private _treeViewComponent: Treeview;
 
     public buildTreeViewSheet() {
         if (this.treeViewSheetHostElement) {
@@ -464,7 +462,6 @@ class DesignerApp {
         this._selectedHostContainer = this.hostContainers[0];
 
         this.recreateDesigner();
-        this._treeViewComponent = new Treeview();
     }
 
     createContainerPicker(): Controls.DropDown {
