@@ -58,7 +58,7 @@ export default class TreeItem {
                 this.foldTreeViewContainer();
             }
 
-            foldArrow.className = `btn treeview__icon treeview__icon--arrow`;
+            foldArrow.className = `treeview__icon treeview__icon--arrow`;
             listItem.appendChild(foldArrow);
         }
 
