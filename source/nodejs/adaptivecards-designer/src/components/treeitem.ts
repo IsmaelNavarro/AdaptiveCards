@@ -18,10 +18,6 @@ export default class TreeItem {
         this._listElement = this.internalRender(indentationLevel);
         rootElement.appendChild(this._listElement);
 
-        if (this.owner.getCardObjectTypeName() == "AdaptiveCard") {
-            console.log(this.owner);
-        }
-
         if (this.owner.getChildCount() > 0) {
             rootElement.appendChild(this.renderChildList(indentationLevel));
         }
