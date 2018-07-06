@@ -5,7 +5,7 @@ export default class TreeItem {
     readonly owner: DesignerPeer;
     private _listElement: HTMLElement;
     private _childContainerElement: HTMLElement;
-    // private _isExpanded: boolean = true;
+    private _isExpanded: boolean = true;
 
     constructor(owner: DesignerPeer) {
         this.owner = owner;
@@ -17,6 +17,10 @@ export default class TreeItem {
 
         this._listElement = this.internalRender(indentationLevel);
         rootElement.appendChild(this._listElement);
+
+        if (this.owner.getCardObjectTypeName() == "AdaptiveCard") {
+            console.log(this.owner);
+        }
 
         if (this.owner.getChildCount() > 0) {
             rootElement.appendChild(this.renderChildList(indentationLevel));
@@ -33,6 +37,10 @@ export default class TreeItem {
         for (let i = 0; i < this.owner.getChildCount(); i++) {
             let currentItem = this.owner.getChildAt(i);
             this._childContainerElement.appendChild(currentItem.treeItem.render(indentationLevel + 1));
+        }
+
+        if (!this._isExpanded) {
+            this._childContainerElement.classList.add("is-folded");
         }
 
         return this._childContainerElement;
@@ -58,7 +66,7 @@ export default class TreeItem {
                 this.foldTreeViewContainer();
             }
 
-            foldArrow.className = `treeview__icon treeview__icon--arrow`;
+            foldArrow.className = `treeview__icon treeview__icon--arrow ${!this._isExpanded ? "is-rotated" : ""}`;
             listItem.appendChild(foldArrow);
         }
 
@@ -85,6 +93,7 @@ export default class TreeItem {
     }
 
     private foldTreeViewContainer(): void {
+        this._isExpanded = !this._isExpanded;
         this._childContainerElement.classList.toggle("is-folded")
     }
 }
