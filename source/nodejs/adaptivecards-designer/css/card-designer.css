@@ -457,11 +457,20 @@
     background-position: center;
     border: none;
     cursor: pointer;
-    height: 20px;
-    margin-bottom: -3px;
-    margin-right: 2px;
+    height: 14px;
+    margin-right: 6px;
+    margin-top: -2px;
     padding: 0;
-    width: 20px;
+    width: 14px;
+}
+
+button.treeview__icon {
+    margin-bottom: -2px;
+    width: 18px;
+}
+
+button.treeview__icon:focus {
+    outline-style: none;
 }
 
 .treeview__icon--arrow::before,
