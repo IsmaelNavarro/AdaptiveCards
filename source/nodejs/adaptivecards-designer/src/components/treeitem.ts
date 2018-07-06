@@ -12,22 +12,34 @@ export default class TreeItem {
     }
 
     render(indentationLevel: number = 0): HTMLElement {
-        let rootElement = document.createElement("ul");
+        let rootElement = document.createElement("div");
         rootElement.className = "treeview__container";
 
         this._listElement = this.internalRender(indentationLevel);
         rootElement.appendChild(this._listElement);
 
         if (this.owner.getChildCount() > 0) {
-            rootElement.appendChild(this.createChildList(indentationLevel));
+            rootElement.appendChild(this.renderChildList(indentationLevel));
         }
 
         this.updateLayout();
         return rootElement;
     }
 
+    private renderChildList(indentationLevel: number): HTMLElement {
+        this._childContainerElement = document.createElement("div");
+        this._childContainerElement.className = "treeview__container";
+
+        for (let i = 0; i < this.owner.getChildCount(); i++) {
+            let currentItem = this.owner.getChildAt(i);
+            this._childContainerElement.appendChild(currentItem.treeItem.render(indentationLevel + 1));
+        }
+
+        return this._childContainerElement;
+    }
+
     private internalRender (indentationLevel: number): HTMLElement {
-        let listItem = document.createElement("li");
+        let listItem = document.createElement("div");
         listItem.className = "treeview__element";
 
         listItem.onclick = (e: MouseEvent) => {
@@ -43,6 +55,7 @@ export default class TreeItem {
                 e.cancelBubble = true;
                 e.preventDefault();
                 foldArrow.classList.toggle("is-rotated");
+                this.foldTreeViewContainer();
             }
 
             foldArrow.className = `btn treeview__icon treeview__icon--arrow`;
@@ -62,22 +75,6 @@ export default class TreeItem {
         return listItem;
     }
 
-    private createChildList(indentationLevel: number): HTMLElement {
-        const newItem = document.createElement("li");
-        newItem.className = "treeview__element";
-
-        const childList = document.createElement("ul");
-        childList.className = "treeview__container";
-
-        for (let i = 0; i < this.owner.getChildCount(); i++) {
-            let childItem = this.owner.getChildAt(i).treeItem;
-            childList.appendChild(childItem.render(indentationLevel));
-        }
-
-        newItem.appendChild(childList);
-        return newItem;
-    }
-
     updateLayout(): void {
         if (this.owner.isSelected) {
             this._listElement.classList.add("is-selected");
@@ -88,6 +85,6 @@ export default class TreeItem {
     }
 
     private foldTreeViewContainer(): void {
-        let addClassResult = childList.classList.toggle("is-folded")
+        this._childContainerElement.classList.toggle("is-folded")
     }
 }

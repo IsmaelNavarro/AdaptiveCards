@@ -369,8 +369,13 @@
 */
 .treeview-items {
     background-color: #f9f9f9;
-    height: calc(100% - 30px);
+    height: calc(100% - 50px);
     padding-bottom: 5px;
+}
+
+.treeview-items > .treeview__container {
+    margin-bottom: 20px;
+    padding-top: 20px;
 }
 
 .treeview__section-title {
