@@ -27,7 +27,7 @@ function monacoEditorLoaded() {
         function (e) {
             scheduleCardRefresh();
         });
-    document.querySelector(".monaco-editor").insertAdjacentHTML("afterbegin", "<div class='host-json__wrapper'><span class='host-json__title'>JSON</span><span class='host-json__bullet js-host-json__bullet'><span class='host-json__icon js-host-json__icon'></span><span class='host-json__description js-host-json__description'>Hide</span></span></div> ");
+    document.querySelector(".monaco-editor").insertAdjacentHTML("afterbegin", "<div class='bullet__wrapper'><span class='bullet__title'>JSON</span><span class='bullet js-host-json__bullet'><span class='bullet__icon js-host-json__icon'></span><span class='bullet__description js-host-json__description'>Hide</span></span></div> ");
     isMonacoEditorLoaded = true;
     updateJsonFromCard();
     app.toggleHostJsonPanel();
