@@ -27,7 +27,16 @@ function monacoEditorLoaded() {
         function (e) {
             scheduleCardRefresh();
         });
-    document.querySelector(".monaco-editor").insertAdjacentHTML("afterbegin", "<div class='bullet__wrapper'><span class='bullet__title'>JSON</span><span class='bullet js-host-json__bullet'><span class='bullet__icon js-host-json__icon'></span><span class='bullet__description js-host-json__description'>Hide</span></span></div> ");
+    const jsonSectlionTitle = `
+    <div class='bullet__wrapper'>
+        <span class='bullet__title'>JSON</span>
+        <span class='bullet js-host-json__bullet'>
+            <span class='bullet__icon js-host-json__icon'></span>
+            <span class='bullet__description js-host-json__description'>Hide</span>
+        </span>
+    </div>
+    `;
+    document.querySelector(".monaco-editor").insertAdjacentHTML("afterbegin", jsonSectlionTitle);
     isMonacoEditorLoaded = true;
     updateJsonFromCard();
     app.toggleHostJsonPanel();
@@ -552,14 +561,14 @@ class DesignerApp {
     }
 
     private addEvents(): void {
-        let jsonBtn = document.querySelector(".js-host-json__bullet");
+        const jsonBtn = document.querySelector(".js-host-json__bullet");
 
         jsonBtn.addEventListener("click", this.toggleClass);
     }
 
     private toggleClass(): void {
-        let jsonEditorPanel = document.getElementById("jsonEditorHost");
-        let jsonBulletDescription = document.querySelector(".js-host-json__description") as HTMLElement;
+        const jsonEditorPanel = document.getElementById("jsonEditorHost");
+        const jsonBulletDescription = document.querySelector(".js-host-json__description") as HTMLElement;
 
         if (jsonEditorPanel.classList.contains("is-closed")) {
             jsonEditorPanel.classList.remove("is-closed");
