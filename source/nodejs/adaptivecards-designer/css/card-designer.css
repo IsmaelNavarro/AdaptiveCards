@@ -308,6 +308,7 @@
 }
 
 .aside-panel.is-active {
+    background-color: #f9f9f9;
     display: block;
     height: 100vh;
     position: relative;
