@@ -107,6 +107,10 @@
     padding: 6px 12px;
 }
 
+.json-wrapper .bullet__wrapper {
+    margin-bottom: 10px;
+}
+
 .bullet__title {
     color: #000000;
     white-space: nowrap;

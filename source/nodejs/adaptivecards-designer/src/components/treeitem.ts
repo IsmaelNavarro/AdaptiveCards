@@ -82,14 +82,13 @@ export default class TreeItem {
     updateLayout(): void {
         if (this.owner.isSelected) {
             this._listElement.classList.add("is-selected");
-        }
-        else {
+        } else {
             this._listElement.classList.remove("is-selected");
         }
     }
 
     private foldTreeViewContainer(): void {
         this._isExpanded = !this._isExpanded;
-        this._childContainerElement.classList.toggle("is-folded")
+        this._childContainerElement.classList.toggle("is-folded");
     }
 }
