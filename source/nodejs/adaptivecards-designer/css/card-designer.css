@@ -588,3 +588,8 @@ button.treeview__icon:focus {
 .content {
     overflow-x: hidden !important;
 }
+
+.monaco-editor,
+.overflow-guard {
+    width: 100% !important;
+}
