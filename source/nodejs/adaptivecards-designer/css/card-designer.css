@@ -577,6 +577,7 @@ button.treeview__icon:focus {
     padding-right: 6px !important;
     flex: 1 1 140px !important;
     margin-left: 10px;
+    max-width: 34% !important;
 }
 
 .default-ac-columnSet.wrapper .default-ac-container:nth-child(3) {
