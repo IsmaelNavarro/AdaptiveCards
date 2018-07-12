@@ -169,6 +169,7 @@
 
 .aside.is-toggled {
     flex-basis: 29px;
+    overflow: hidden;
 }
 
 .default-ac-container:last-of-type {
