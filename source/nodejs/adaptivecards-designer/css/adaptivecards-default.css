@@ -31,6 +31,7 @@ a.default-ac-anchor:visited:active {
 
 [id="treeViewSheetHost"],
 [id="propertySheetHost"] {
+    background-color: #f9f9f9;
     min-width: 205px;
     position: relative;
 }
