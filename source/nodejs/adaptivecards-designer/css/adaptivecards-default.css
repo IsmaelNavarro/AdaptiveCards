@@ -35,10 +35,13 @@ a.default-ac-anchor:visited:active {
     position: relative;
 }
 
-.default-ac-container,
-.default-ac-input {
+.properties-items {
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.default-ac-container:not(:last-of-type) {
+    padding-right: 10px;;
 }
 
 .default-ac-container + div {

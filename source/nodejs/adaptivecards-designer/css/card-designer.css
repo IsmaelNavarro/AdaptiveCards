@@ -172,10 +172,6 @@
     overflow: hidden;
 }
 
-.default-ac-container:last-of-type {
-    padding-left: 6px;
-}
-
 .is-hidden {
     display: none;
 }
